@@ -1,0 +1,351 @@
+@mixin clearfix()
+  &:before, &:after
+    content: ""
+    display: table
+
+  &:after
+    clear: both
+
+@mixin placeholder($color: #000000)
+  &::-webkit-input-placeholder
+    color: $color
+  &:-moz-placeholder
+    color: $color
+  &::-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+
+@mixin border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -ms-border-radius: $radius
+  border-radius: $radius
+
+html
+  width: 100%
+  height: 100%
+
+body
+  height: 100%
+  background-color: transparent
+
+ul
+  padding: 0
+  margin: 0
+
+  li
+    list-style: none
+
+p
+  padding: 0
+  margin: 0
+
+a
+  text-decoration: none
+  cursor: pointer
+
+*
+  box-sizing: border-box
+
+body
+  background: #CCCCCC
+  background-size: cover
+  font-family: Lato, sans-serif
+  font-size: 14px
+  max-width: 1440px
+  min-width: 300px
+  margin: 0 auto
+  color: #333333
+
+  .header
+    height: 60px
+    background-color: #ffffff
+    width: 100%
+    line-height: 2.2
+    @include clearfix()
+    font-size: 14px
+    font-weight: bold
+
+    .header__logo
+      float: left
+      width: 20%
+      height: 32px
+      .header__item__logo
+        padding: 0 10px
+
+
+    .header__info
+      float: left
+      width: 80%
+      text-align: right
+      .header__info__list
+        @include clearfix()
+        .header__info__item
+          float: right
+          padding-right: 10px
+
+          .header__info__item_img
+            width: 30px
+            height: 30px
+            @include border-radius(50%)
+
+  .wrapper
+    width: 100%
+    height: 100%
+    @include clearfix()
+
+    .wrapper__menu
+      min-width: 160px
+      float: left
+      margin: 0
+      padding: 0
+
+      .categories__link
+        display: block
+        padding: 10px
+        color: #9b9b9b
+
+        .categories__icon
+          display: inline-block
+          vertical-align: middle
+        .categories__text
+          vertical-align: middle
+          margin-left: 15px
+
+
+      .categories__item:first-child
+        .categories__link
+          border-left: 1px solid #333333
+          color: #333333
+
+
+    .content
+      background-color: #ffffff
+      float: left
+      height: 100%
+      @include border-radius(2px)
+
+      .content__info
+        padding: 20px 10px 10px 30px
+        .content__info__photo
+          position: relative
+
+          .content__info__photo_img
+            width: 120px
+            height: 120px
+            @include border-radius(4px)
+
+          .content__info__photo_official
+            position: absolute
+            width: 50px
+            height: 16px
+            @include border-radius(14px)
+            background-color: #D0021B
+            border: 1px solid #A60001
+            left: -5px
+            color: #ffffff
+            font-size: 0.625rem
+            text-align: center
+
+
+        .content__info__container
+          .content__info__container_name
+            font-size: 1.125rem
+            font-weight: 600
+          .content__info__container_twitter
+            font-size: 0.875rem
+            font-weight: 600
+          .content__info__container_position
+            font-size: 0.875rem
+            color: #4a4a4a
+            margin-bottom: 25px
+          .content__info__container__buttons
+            vertical-align: bottom
+            position: relative
+            .content__info__container__buttons_details
+              height: 36px
+              @include border-radius(3px)
+              border: 1px solid #000000
+              color: #000000
+              background-color: #ffffff
+              padding: 0 20px
+              vertical-align: bottom
+
+            .content__info__container__buttons_show
+              vertical-align: bottom
+              height: 24px
+              @include border-radius(3px)
+              border: 1px solid #979797
+              font-size: 12px
+              color: #979797
+              background-color: #ffffff
+              padding: 0 15px
+              position: absolute
+              right: 0
+              bottom: 0
+
+      .content__details
+        background: rgba(240,240,240,0.40)
+        box-shadow: inset 0 0 8px 0 #CCCCCC
+        padding: 20px 36px
+        .content__details__item
+          margin-bottom: 7px
+          .content__details__item_left
+            display: inline-block
+            color: #9b9b9b
+
+      .content__nav
+        padding-left: 20px
+        .content__nav__item
+          display: inline-block
+          padding: 10px 15px
+          color: #9b9b9b
+          font-weight: 600
+      .content__nav__item:last-child
+        color: #4a4a4a
+        border-bottom: 2px solid #4a4a4a
+
+      .content__search
+        border-bottom: 1px solid #d8d8d8
+        border-top: 1px solid #d8d8d8
+        .search
+          position: relative
+          height: 36px
+          .search__submit
+            position: absolute
+            left: 10px
+            top: 50%
+            margin-top: -9px
+            .search__submit_link
+              color:  #b4b4b4
+          .search__input
+            padding: 10px 55px 10px 35px
+            border: 0 none
+            width: 100%
+          .search__filter
+            position: absolute
+            right: 17px
+            top: 50%
+            margin-top: -9px
+            .search__filter_link
+              color: #b4b4b4
+
+      .content__body
+        background-color: #EBECF0
+        .content__body__list
+          padding: 16px
+          border-bottom: 1px solid #d8d8d8
+          .content__body__pic
+            .content__body__pic_img
+              width: 48px
+              height: 48px
+              @include border-radius(4px)
+          .content__body__text
+            .content__body__text_up
+              font-weight: 600
+              color: #D0021B
+            .content__body__text_down
+              font-size: 12px
+              color: #9b9b9b
+          .content__body__ques
+            font-size: 12px
+            color: #9b9b9b
+          .content__body__book
+            .content__body__book_saves
+              font-size: 12px
+          .content__body__rating
+            .content__body__rating_stars
+              .fa-star
+                color: #f5a623
+            .content__body__rating_rates
+              font-size: 12px
+
+@media(max-width: 767px)
+  .header
+    padding: 14px 0
+  .wrapper__menu
+    width: 100%
+  .content
+    width: 100%
+    .content__info__photo_img
+      position: relative
+    .content__info__photo_official
+      top: 90px
+
+  .categories__link
+    text-align: center
+  .categories__list
+    @include clearfix()
+    width: 100%
+    .categories__item
+      float: left
+      width: 14%
+      .categories__text
+        display: none
+
+
+
+
+@media(min-width: 768px)
+  .header
+    padding: 14px 2%
+  .wrapper
+    padding: 40px 2% 0
+    .wrapper__menu
+      width: 25%
+    .content
+      width: 75%
+      .content__info__photo_img
+        position: absolute
+        top: -40px
+      .content__info__photo_official
+        top: 50px
+      .content__info__container
+        padding-left: 160px
+  .content__details__item_left
+    width: 25%
+
+  .categories__link
+    text-align: left
+
+  .content__body
+    .content__body__list
+      @include clearfix()
+      .content__body__pic
+        float: left
+        width: 10%
+        display: inline-block
+        vertical-align: middle
+      .content__body__text
+        display: inline-block
+        vertical-align: middle
+        float: left
+        width: 30%
+      .content__body__ques
+        float: left
+        width: 40%
+      .content__body__book
+        float: left
+        width: 10%
+        text-align: center
+      .content__body__rating
+        float: left
+        width: 10%
+        text-align: center
+
+@media(min-width: 900px)
+  .header
+    padding: 14px 5%
+  .wrapper
+    padding: 40px 5% 0
+  .content__details__item_left
+    width: 20%
+
+@media(min-width: 1200px)
+  .header
+    padding: 14px 11%
+  .wrapper
+    padding: 40px 11% 0
+  .content__details__item_left
+    width: 15%
